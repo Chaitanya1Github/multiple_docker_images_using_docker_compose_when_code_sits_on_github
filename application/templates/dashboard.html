@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table id="customers" style="margin-top: 5px;">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th>Update</th>
+    <th>Delete</th>
+  </tr>
+
+  {% for employee in employees %}
+  <tr>
+    <td>{{ employee.name }}</td>
+    <td>{{ employee.email }}</td>
+    <td>{{ employee.phone }}</td>
+    <td>{{ employee.address }}</td>
+    <td><a href="/update/{{ employee._id }}">Update</a></td>
+    <td><a href="/delete/{{ employee._id }}">Delete</a></td>
+  </tr>
+  {% endfor %}
+
+</table>
+{% endblock %}
