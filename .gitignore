@@ -1,3 +1,2 @@
-docker-compose.yml
 flask_app/
 application/__pycache__/

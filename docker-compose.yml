@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  application:
+    build:
+      context: https://github.com/Chaitanya1Github/single-image.git
+      dockerfile: application/Dockerfile
+    command: gunicorn --bind 0.0.0.0:5000 wsgi:app
+    volumes:
+      - .:/code/
+    ports:
+      - "5000:5000"
+    links:
+      - db
+
+  nginx:
+    build:
+      context: https://github.com/Chaitanya1Github/single-image.git
+      dockerfile: nginx/Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - application
+
+  db:
+    image: mongo:latest
+    hostname: localhost
+    environment:
+      - MONGO_INITDB_DATABASE=emp_db
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-volume:/data/db
+
+volumes:
+  mongo-volume:
