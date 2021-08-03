@@ -14,4 +14,5 @@
 7. Now you may think what if I upload docker-compose.yml on github repository and trigger that file from power shell so that I can achieve as many containers I want. But wait this is not possible (atleast it is what i know). Because there is command like: docker compose build github_url
 8. but there is one thing you can do:
     a) upload Dockerfile on github
-    b) provide the url of github in docker-compose file
+    b) create docker-compose.yml file in your local machine (copy above docker-compose for reference)
+    b) provide the url of github repository in docker-compose file, in build->context(takes url) and build->dockerfile(takes path of Dockerfile) 
