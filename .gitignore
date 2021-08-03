@@ -1,5 +1,5 @@
-venv/
-.idea/
+# venv/
+# .idea/
 docker-compose.yml
-flask_app/
-application/__pycache__/
+# flask_app/
+# application/__pycache__/
